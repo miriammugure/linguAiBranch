@@ -1,6 +1,6 @@
 
 
-function Contacts() {
+function Doctor() {
   return (
     <div>
       
@@ -8,4 +8,4 @@ function Contacts() {
   )
 }
 
-export default Contacts
+export default Doctor

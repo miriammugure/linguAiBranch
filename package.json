@@ -1,5 +1,5 @@
 {
-  "name": "tailwind_learning",
+  "name": "dekut_hackathon",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -14,6 +14,7 @@
     "apexcharts": "^3.54.0",
     "react": "^18.2.0",
     "react-apexcharts": "^1.4.1",
+    "react-data-table": "^0.1.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.26.2",
     "react-scripts": "^5.0.1"
