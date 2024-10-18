@@ -7,6 +7,7 @@ export const patientsData = [
       mobile: "123-456-7890",
       name_of_kin: "Jane Doe",
       phone_of_kin: "321-654-0987",
+      gender:"male"
     },
     {
       id: 2,
@@ -16,6 +17,7 @@ export const patientsData = [
       mobile: "987-654-3210",
       name_of_kin: "John Smith",
       phone_of_kin: "876-543-2109",
+       gender:"female"
     },
     {
       id: 3,
@@ -25,6 +27,7 @@ export const patientsData = [
       mobile: "555-123-4567",
       name_of_kin: "Michelle Johnson",
       phone_of_kin: "555-765-4321",
+       gender:"male"
     },
   
     {
@@ -35,6 +38,7 @@ export const patientsData = [
       mobile: "222-333-4444",
       name_of_kin: "Bob Brown",
       phone_of_kin: "444-555-6666",
+       gender:"female"
     },
     {
       id: 5,
@@ -44,6 +48,7 @@ export const patientsData = [
       mobile: "333-444-5555",
       name_of_kin: "Rebecca White",
       phone_of_kin: "666-777-8888",
+       gender:"male"
     },
   
   ];
