@@ -47,9 +47,29 @@ export const AuthProvider = ({ children }) => {
     }
   };
 
-  const signUp = async (email, username, password1, password2, user_type) => {
+  const signUp = async (
+    email,
+    username,
+    password1,
+    password2,
+    user_type,
+    firstName,
+    lastName,
+    location,
+    gender,
+    phoneNumber,
+   ) => {
     try {
-      const { access, refresh } = await signUpUser(email, username, password1, password2, user_type);
+      const { access, refresh } = await signUpUser( email,
+        username,
+        password1,
+        password2,
+        user_type,
+        firstName,
+        lastName,
+        location,
+        gender,
+        phoneNumber,);
   
       // Store tokens in local storage
       await localStorage.setItem('accessToken', access);
@@ -59,7 +79,7 @@ export const AuthProvider = ({ children }) => {
       await fetchUserDetails();
 
       setIsAuthenticated(true);
-      navigate('/'); // Redirect to dashboard after signup
+      navigate('/login'); // Redirect to dashboard after signup
     } catch (error) {
       handleAuthError(error, "Signup failed");
     }
