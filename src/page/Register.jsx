@@ -6,12 +6,12 @@ import { globalStyles } from "../components/globalStyles";
 function Register() {
   const { signUp } = useAuth(); // Get signUp function from AuthContext
   const [formData, setFormData] = useState({
-    firstName: "",
-    lastName: "",
+    first_name: "",
+    last_name: "",
     location: "",
     email: "",
     gender: "",
-    phoneNumber: "",
+    contact_number: "",
     password: "",
     confirmPassword: "",
   });
@@ -31,7 +31,7 @@ function Register() {
     setLoading(true);
 
     // Validation: Check if all fields are filled
-    if (!formData.firstName || !formData.lastName || !formData.location || !formData.email || !formData.gender || !formData.phoneNumber || !formData.password || !formData.confirmPassword) {
+    if (!formData.first_name || !formData.last_name || !formData.location || !formData.email || !formData.gender || !formData.contact_number || !formData.password || !formData.confirmPassword) {
       setError("Please fill out all fields.");
       setLoading(false);
       return;
@@ -45,18 +45,17 @@ function Register() {
     }
 
     try {
-      // Call the signUp function from AuthContext
+      // Call the signUp function from AuthContext with snake_case mapping
       await signUp(
         formData.email,
-        formData.firstName,
         formData.password,
         formData.confirmPassword,
-        "patient", // Assuming user type is "patient"
-        formData.firstName,
-        formData.lastName,
+        "patient",           // Assuming user type is "patient"
+        formData.first_name,   // Map first_name to first_name
+        formData.last_name,    // Map last_name to last_name
         formData.location,
         formData.gender,
-        formData.phoneNumber
+        formData.contact_number
       );
       // Registration was successful, and the user will be redirected in AuthContext
     } catch (error) {
@@ -83,25 +82,25 @@ function Register() {
           onSubmit={handleSubmit} // Use the handleSubmit function on form submission
           className="flex flex-col justify-center items-start bg-white shadow-xl rounded px-8 pt-6 pb-8 mb-4 z-50 "
         >
-          <label htmlFor="firstName" className="text-sm capitalize font-bold mb-2">
+          <label htmlFor="first_name" className="text-sm capitalize font-bold mb-2">
             first name
           </label>
           <input
             type="text"
-            id="firstName"
-            value={formData.firstName}
+            id="first_name"
+            value={formData.first_name}
             onChange={handleChange}
             className="shadow appearance-none border rounded w-full py-2 px-3 mb-1 text-gray-900 leading-tight focus:outline-none focus:shadow-outline"
             placeholder="john"
           />
 
-          <label htmlFor="lastName" className="text-sm capitalize font-bold mb-2">
+          <label htmlFor="last_name" className="text-sm capitalize font-bold mb-2">
             last name
           </label>
           <input
             type="text"
-            id="lastName"
-            value={formData.lastName}
+            id="last_name"
+            value={formData.last_name}
             onChange={handleChange}
             className="shadow appearance-none border rounded w-full py-2 px-3 mb-1 text-gray-900 leading-tight focus:outline-none focus:shadow-outline"
             placeholder="doe"
@@ -158,13 +157,13 @@ function Register() {
             </div>
           </div>
 
-          <label htmlFor="phoneNumber" className="text-sm capitalize font-bold mb-2">
+          <label htmlFor="contact_number" className="text-sm capitalize font-bold mb-2">
             phone number
           </label>
           <input
             type="text"
-            id="phoneNumber"
-            value={formData.phoneNumber}
+            id="contact_number"
+            value={formData.contact_number}
             onChange={handleChange}
             className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-900 leading-tight focus:outline-none focus:shadow-outline"
             placeholder="012345678"

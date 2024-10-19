@@ -49,27 +49,26 @@ export const AuthProvider = ({ children }) => {
 
   const signUp = async (
     email,
-    username,
-    password1,
-    password2,
-    user_type,
-    firstName,
-    lastName,
-    location,
-    gender,
-    phoneNumber,
+  password1,
+  password2,
+  user_type,
+  first_name, // Backend might expect "first_name"
+  last_name,  // Backend might expect "last_name"
+  location,
+  gender,
+  contact_number
    ) => {
     try {
-      const { access, refresh } = await signUpUser( email,
-        username,
+      const { access, refresh } = await signUpUser( 
+        email,
         password1,
         password2,
         user_type,
-        firstName,
-        lastName,
+        first_name, // Backend might expect "first_name"
+        last_name,  // Backend might expect "last_name"
         location,
         gender,
-        phoneNumber,);
+        contact_number);
   
       // Store tokens in local storage
       await localStorage.setItem('accessToken', access);

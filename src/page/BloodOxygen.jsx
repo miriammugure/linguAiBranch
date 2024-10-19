@@ -1,24 +1,10 @@
-import Chart from "react-apexcharts";
+import PropTypes from 'prop-types';
+import Chart from 'react-apexcharts';
 
-function BloodOxygen() {
-  const bloodOxygenData = [
-    { date: '2024-10-01', oxygen: 98 },
-    { date: '2024-10-02', oxygen: 97 },
-    { date: '2024-10-03', oxygen: 99 },
-    { date: '2024-10-04', oxygen: 98 },
-    { date: '2024-10-05', oxygen: 97 },
-    { date: '2024-10-06', oxygen: 96 },
-    { date: '2024-10-07', oxygen: 98 },
-    { date: '2024-10-08', oxygen: 99 },
-    { date: '2024-10-09', oxygen: 97 },
-    { date: '2024-10-10', oxygen: 98 },
-    { date: '2024-10-11', oxygen: 99 },
-    { date: '2024-10-12', oxygen: 97 },
-    { date: '2024-10-13', oxygen: 96 },
-    { date: '2024-10-14', oxygen: 98 },
-  ];
+function BloodOxygen({ bloodOxygenData = [] }) {
+  if (!bloodOxygenData.length) return <div>No blood oxygen data available</div>;
 
-  const dates = bloodOxygenData.map((entry) => entry.date);
+  const times = bloodOxygenData.map((entry) => entry.time);
   const oxygenLevels = bloodOxygenData.map((entry) => entry.oxygen);
 
   const chartOptions = {
@@ -29,24 +15,23 @@ function BloodOxygen() {
       },
     },
     xaxis: {
-      categories: dates,
+      categories: times, // Times as x-axis
       title: {
-        text: 'Date',
+        text: 'Time',
         style: {
           color: '#333',
           fontSize: '14px',
         },
+      },
+      labels: {
+        format: 'HH:mm:ss', // Time format (hours:minutes:seconds)
       },
     },
     yaxis: {
       title: {
         text: 'Blood Oxygen Level (%)',
-        style: {
-          color: '#333',
-          fontSize: '14px',
-        },
       },
-      min: 90, 
+      min: 90,
       max: 100,
     },
     stroke: {
@@ -60,32 +45,31 @@ function BloodOxygen() {
     title: {
       text: 'Patient Blood Oxygen Levels',
       align: 'start',
-      style: {
-        fontSize: '14px',
-        fontWeight: 'bold',
-        color: '#333',
-      },
     },
-    colors: ['#34D399'], 
+    colors: ['#34D399'], // Green color for oxygen levels
   };
 
   const chartSeries = [
     {
-      name: 'Blood Oxygen Level',
+      name: 'Oxygen Level',
       data: oxygenLevels,
     },
   ];
 
   return (
     <div>
-      <Chart
-        options={chartOptions}
-        series={chartSeries}
-        type="line"
-        height={350}
-      />
+      <Chart options={chartOptions} series={chartSeries} type="line" height={350} />
     </div>
   );
 }
+
+BloodOxygen.propTypes = {
+  bloodOxygenData: PropTypes.arrayOf(
+    PropTypes.shape({
+      date: PropTypes.string.isRequired,
+      oxygen: PropTypes.number.isRequired,
+    })
+  ).isRequired,
+};
 
 export default BloodOxygen;

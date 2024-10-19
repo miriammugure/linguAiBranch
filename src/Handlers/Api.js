@@ -8,6 +8,9 @@ import {
   LOGIN_URL_URL, 
   LOGOUT_URL,
   GET_USER_URL,
+  GET_SENSOR_DATA_URL,
+  GET_PATIENTS_URL ,
+  GET_SINGLE_PATIENT_URL
 //   GET_ORGANIZATIONS_SUMMARY,
 //   GET_ORGANIZATION,
 //   UPDATE_ORGANIZATION,
@@ -124,9 +127,27 @@ export const loginUser = async (email, password) => {
   }
 };
 
-export const signUpUser = async (email, username, password1,password2 ,user_type) => {
+export const signUpUser = async (
+  email,
+  password1,
+  password2,
+  user_type,
+  first_name, // Backend might expect "first_name"
+  last_name,  // Backend might expect "last_name"
+  location,
+  gender,
+  contact_number) => {
   try {
-    const response = await axios.post(SIGN_UP_URL, { email, username, password1,password2 ,user_type});
+    const response = await axios.post(SIGN_UP_URL, {
+        email,
+        password1,
+        password2,
+        user_type,
+        first_name, // Backend might expect "first_name"
+        last_name,  // Backend might expect "last_name"
+        location,
+        gender,
+        contact_number});
     const { access, refresh ,user} = response.data;
     await localStorage.setItem('accessToken', access);
     await localStorage.setItem('refreshToken', refresh);
@@ -174,28 +195,28 @@ export const logoutUser = async () => {
     await localStorage.removeItem('refreshToken');
   }
 };
-// Organizations
-// export const getOrganizationsSummary = async () => {
-//   try {
-//     const response = await api.get(GET_ORGANIZATIONS_SUMMARY);    
-//     return response.data;
-//   } catch (error) {
-//     handleApiError(error );
-//   }
-// };
-// export const getOrganization = async () => {
-//   try {
-//     const response = await api.get(GET_ORGANIZATION);    
-//     return response.data;
-//   } catch (error) {
-//     handleApiError(error );
-//   }
-// };
-// export const updateOrganizations = async (formData) => {
-//   try {
-//     const response = await api.patch(UPDATE_ORGANIZATION,formData);    
-//     return response.data;
-//   } catch (error) {
-//     handleApiError(error );
-//   }
-// };
+export const GET_SENSOR_DATA = async () => {
+  try {
+    const response = await api.get(GET_SENSOR_DATA_URL);    
+    return response.data;
+  } catch (error) {
+    handleApiError(error );
+  }
+};
+
+export const GET_PATIENTS_DATA = async () => {
+  try {
+    const response = await api.get(GET_PATIENTS_URL);    
+    return response.data;
+  } catch (error) {
+    handleApiError(error );
+  }
+};
+export const GET_SINGLE_PATIENTS_DATA = async (id) => {
+  try {
+    const response = await api.get(GET_SINGLE_PATIENT_URL.replace('{id}',id.toString()));    
+    return response.data;
+  } catch (error) {
+    handleApiError(error );
+  }
+};

@@ -49,7 +49,7 @@ const SidebarPatient = ({ isSidebarOPen, handleSidebar }) => {
           <li className="p-2">
             <button
               onClick={handleSignOut} // Call logout on click
-              className="block font-extrabold flex items-start gap-2 text-sm font-extrabold"
+              className=" font-extrabold flex items-start gap-2 text-sm "
             >
               <FaArrowAltCircleLeft size={20} />
               Sign out

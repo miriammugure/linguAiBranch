@@ -1,24 +1,12 @@
-import Chart from "react-apexcharts"; 
+import PropTypes from 'prop-types';
 
-function PulseRate() {
-  const pulseRateData = [
-    { date: '2024-10-01', pulse: 72 },
-    { date: '2024-10-02', pulse: 76 },
-    { date: '2024-10-03', pulse: 78 },
-    { date: '2024-10-04', pulse: 70 },
-    { date: '2024-10-05', pulse: 75 },
-    { date: '2024-10-06', pulse: 80 },
-    { date: '2024-10-07', pulse: 74 },
-    { date: '2024-10-08', pulse: 73 },
-    { date: '2024-10-09', pulse: 71 },
-    { date: '2024-10-10', pulse: 77 },
-    { date: '2024-10-11', pulse: 79 },
-    { date: '2024-10-12', pulse: 82 },
-    { date: '2024-10-13', pulse: 75 },
-    { date: '2024-10-14', pulse: 76 },
-  ];
 
-  const dates = pulseRateData.map((entry) => entry.date);
+import Chart from "react-apexcharts";
+
+function PulseRate({ pulseRateData = [] }) {
+  if (!pulseRateData.length) return <div>No pulse rate data available</div>;
+
+  const times= pulseRateData.map((entry) => entry.time);
   const pulseRates = pulseRateData.map((entry) => entry.pulse);
 
   const chartOptions = {
@@ -29,13 +17,16 @@ function PulseRate() {
       },
     },
     xaxis: {
-      categories: dates, // Dates as x-axis
+      categories: times, // Times as x-axis
       title: {
-        text: 'Date',
+        text: 'Time',
         style: {
           color: '#333',
           fontSize: '14px',
         },
+      },
+      labels: {
+        format: 'HH:mm:ss', // Time format (hours:minutes:seconds)
       },
     },
     yaxis: {
@@ -46,19 +37,19 @@ function PulseRate() {
           fontSize: '14px',
         },
       },
-      min: 60, // Setting a minimum value for better scaling
-      max: 100, // Optional: Set a maximum if desired
+      min: 60,
+      max: 100,
     },
     stroke: {
-      curve: 'smooth', // Smooth the line
+      curve: 'smooth',
     },
     tooltip: {
       x: {
-        format: 'yyyy-MM-dd', 
+        format: 'yyyy-MM-dd',
       },
     },
     title: {
-      text: 'Patient Pulse Rate ',
+      text: 'Patient Pulse Rate',
       align: 'start',
       style: {
         fontSize: '14px',
@@ -66,7 +57,7 @@ function PulseRate() {
         color: '#333',
       },
     },
-    colors: ['#34D399'], 
+    colors: ['#34D399'],
   };
 
   const chartSeries = [
@@ -76,16 +67,15 @@ function PulseRate() {
     },
   ];
 
-  return (
-    <div>
-      <Chart
-        options={chartOptions}
-        series={chartSeries}
-        type="line"
-        height={350}
-      />
-    </div>
-  );
+  return <Chart options={chartOptions} series={chartSeries} type="line" height={350} />;
 }
-
+PulseRate.propTypes = {
+    pulseRateData: PropTypes.arrayOf(
+      PropTypes.shape({
+        date: PropTypes.string.isRequired,
+        pulse: PropTypes.number.isRequired,
+      })
+    ).isRequired,
+  };
 export default PulseRate;
+
