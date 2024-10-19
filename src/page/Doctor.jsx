@@ -1,7 +1,9 @@
 import DataTable from "react-data-table-component";
 import { patientsData } from "../data/data";
 import { Link } from "react-router-dom";
-const Doctors = () => {
+// import DashboardLayout from "./DashboardLayout";
+
+const Doctor = () => {
   const columns = [
     {
       name: "ID",
@@ -39,7 +41,7 @@ const Doctors = () => {
       sortable: true,
     },
     {
-      name: "gender",
+      name: "Gender",
       selector: (row) => row.gender,
       sortable: true,
     },
@@ -47,7 +49,7 @@ const Doctors = () => {
       name: "Actions",
       cell: (row) => (
         <Link
-          to={`/patientAnalytics/${row.id}`}
+          to={`/patientProfile/${row.id}`}
           className="bg-green-900 text-white px-4 py-2 rounded hover:bg-green-700"
         >
           View Analytics
@@ -55,44 +57,50 @@ const Doctors = () => {
       ),
       ignoreRowClick: true,
       allowOverflow: true,
-      button: true,
+     
     },
-    
   ];
 
   return (
-    <div className="p-4">
-      <div className="flex justify-center items-center py-4">
-        <form className="w-full max-w-md">
-          <div className="flex items-center py-2">
-            <input
-              className="appearance-none bg-transparent w-full text-gray-700 mr-3 py-1 px-2 leading-tight focus:outline-none border-2 border-b-green-900"
-              type="text"
-              placeholder="Search patients..."
-              aria-label="Search Patients"
-            />
-            <button
-              className="flex-shrink-0 bg-green-900 hover:bg-green-600 border-none text-sm border-4 text-white py-1 px-2 rounded h-14 "
-              type="submit"
-            >
-              Search
-            </button>
+    <div className="flex ">
+
+      <div className="flex  justify-center items-center">  
+        <div className="flex-1 "> 
+          <div className="flex justify-center items-center">
+            <form className="w-full max-w-md">
+              <div className="flex items-center py-2">
+                <input
+                  className="appearance-none bg-transparent w-full text-gray-700 mr-3 py-1 px-2 leading-tight focus:outline-none border-2 border-b-green-900"
+                  type="text"
+                  placeholder="Search patients..."
+                  aria-label="Search Patients"
+                />
+                <button
+                  className="flex-shrink-0 bg-green-900 hover:bg-green-600 border-none text-sm border-4 text-white py-1 px-2 rounded h-14"
+                  type="submit"
+                >
+                  Search
+                </button>
+              </div>
+            </form>
           </div>
-        </form>
+          <h1 className="text-2xl font-bold mb-4 text-center">Patients List</h1>
+     
+       <DataTable
+            columns={columns}
+            data={patientsData}
+            pagination
+            highlightOnHover
+            responsive
+            striped
+          />
+       
+        </div>
       </div>
-      <h1 className="text-2xl font-bold mb-4 text-center">Patients List</h1>
-      <DataTable
-        columns={columns}
-        data={patientsData}
-        pagination
-        highlightOnHover
-        responsive
-        striped
-        
-      />
-    
+  
     </div>
   );
 };
 
-export default Doctors;
+
+export default Doctor;
