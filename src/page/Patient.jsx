@@ -7,7 +7,7 @@ import Navbar from "./Navbar.jsx";
 import PatientsDataVisual from "./PatientsDataVisual.jsx";
 import PatientNavbar from "./patientNavbar.jsx";
 
-// import SideBarLinks from "./Dashboard.jsx";
+
 
 const Patient = () => {
   const [isSidebarOPen, setIsSidebarOpen] = useState(true);

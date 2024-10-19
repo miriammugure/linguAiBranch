@@ -8,6 +8,7 @@ import PatientAnalytics from "./page/PatientAnalytics";
 import TreatmentScheduling from "./page/TreatmentScheduling";
 import Navbar from "./page/Navbar";
 import Home from "./page/Home";
+import Telemedicine from "./page/Telemedicine";
 
 const Main = () => {
   const [isSidebarOPen, setIsSidebarOpen] = useState(true);
@@ -22,6 +23,7 @@ const Main = () => {
 
         <Routes>
           <Route path="/home" element={<Home/>}/>
+          <Route path="/telemedicine" element={<Telemedicine/>}/>
           < Route path="/navbar" element={<Navbar/>}/>
           <Route path="/doctor" element={<Doctor/>} />
           <Route path="/sidebar" element={<SideBarLinks />} />

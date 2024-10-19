@@ -57,6 +57,17 @@ const Sidebar = ({ isSidebarOPen, handleSidebar }) => {
               </Link>
             </li>
 
+             <li className="p-sm font-medium p-2 ">
+              <Link to="/doctorsDashboard/telemedicine" className="block">
+                <span className=" flex items-center gap-2 font-extrabold">
+                  <LuLayoutDashboard size={20} />
+                 Tele-Medicine
+                </span>
+              </Link>
+            </li>
+
+
+
 
 
         
@@ -70,6 +81,7 @@ const Sidebar = ({ isSidebarOPen, handleSidebar }) => {
               </span>
             </div>
           </li>
+           
         </ul>
 
       </nav>
