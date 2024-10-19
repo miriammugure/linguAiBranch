@@ -25,7 +25,7 @@ export const AuthProvider = ({ children }) => {
     } finally {
       setUser(null);
       setIsAuthenticated(false);
-      navigate('/books'); // Redirect to home page after logout
+      navigate('/login'); // Redirect to home page after logout
     }
   }, [navigate]);
 
@@ -41,7 +41,7 @@ export const AuthProvider = ({ children }) => {
       await fetchUserDetails();
 
       setIsAuthenticated(true);
-      navigate('/dashboard'); // Redirect to dashboard after login
+      navigate('/patientsDashboard/'); // Redirect to dashboard after login
     } catch (error) {
       handleAuthError(error, "Login failed");
     }
@@ -59,7 +59,7 @@ export const AuthProvider = ({ children }) => {
       await fetchUserDetails();
 
       setIsAuthenticated(true);
-      navigate('/dashboard'); // Redirect to dashboard after signup
+      navigate('/'); // Redirect to dashboard after signup
     } catch (error) {
       handleAuthError(error, "Signup failed");
     }

@@ -1,4 +1,4 @@
-const BASE_URL = 'http://127.0.0.1:80';
+const BASE_URL = 'http://172.16.105.74';
 
 export const GET_INDIVIDUAL_URL = `${BASE_URL}/individuals/`;
 export const UPDATE_INDIVIDUAL_URL = `${BASE_URL}/individuals/pk/`;
