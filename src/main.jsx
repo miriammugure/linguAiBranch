@@ -1,13 +1,4 @@
-// import React from 'react'
-// import ReactDOM from 'react-dom/client'
-// import App from './App.jsx'
-// import './index.css'
 
-// ReactDOM.createRoot(document.getElementById('root')).render(
-//   <React.StrictMode>
-//     <App />
-//   </React.StrictMode>,
-// )
 import  { useState } from "react";
 import { Routes, Route } from "react-router-dom";
 import Doctor from "./page/Doctor";
@@ -15,7 +6,7 @@ import SideBarLinks from "./page/Dashboard";
 import Sidebar from "./page/Sidebar";
 import PatientAnalytics from "./page/PatientAnalytics";
 import TreatmentScheduling from "./page/TreatmentScheduling";
-import Analytics from "./page/Analytics";
+// import Analytics from "./page/Analytics";
 import Navbar from "./page/Navbar";
 import Home from "./page/Home";
 
@@ -33,7 +24,7 @@ const Main = () => {
         <Routes>
           <Route path="/home" element={<Home/>}/>
           < Route path="/navbar" element={<Navbar/>}/>
-          <Route path="/analytics" element={<Analytics/>}/>
+          {/* <Route path="/analytics" element={<Analytics/>}/> */}
           <Route path="/doctor" element={<Doctor/>} />
           <Route path="/sidebar" element={<SideBarLinks />} />
           < Route path="/treatmentScheduling" element={<TreatmentScheduling/>}/>

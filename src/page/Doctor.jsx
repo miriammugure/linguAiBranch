@@ -49,7 +49,7 @@ const Doctor = () => {
       name: "Actions",
       cell: (row) => (
         <Link
-          to={`/patientProfile/${row.id}`}
+          to={`/dashboard/patientProfile/${row.id}`}
           className="bg-green-900 text-white px-4 py-2 rounded hover:bg-green-700"
         >
           View Analytics
