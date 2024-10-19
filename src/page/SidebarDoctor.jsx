@@ -12,8 +12,8 @@ const SidebarDoctor = ({ isSidebarOPen, handleSidebar }) => {
       } transition-transform duration-500 ease-in-out`}
     >
       <div className="flex items-center justify-between">
-        <h2 className="text-xl bg-blue-500 text-white rounded-md px-2 py-1 font-extrabold flex items-center gap-2 mb-5 p-4">
-          GoldenHealth
+        <h2 className="text-xl bg-green-700 text-white rounded-md px-2 py-1 font-extrabold flex items-center gap-2 mb-5 p-4">
+         AfyaNyumbani
         </h2>
         <RxCross2
           onClick={handleSidebar}
@@ -25,12 +25,11 @@ const SidebarDoctor = ({ isSidebarOPen, handleSidebar }) => {
       <nav className="flex-grow">
         <ul className="ml-2">
           <li className="p-sm font-medium p-2 flex">
-            <Link to="/doctorsDashboard/home" className="flex flex-row">
-              <span className="flex items-start gap-2 font-extrabold">
-                <LuLayoutDashboard size={20} />
+              <span className="flex items-start gap-2 font-extrabold bg-gray-500 p-3  rounded text-white ">
+              
                 Dashboard
               </span>
-            </Link>
+            
           </li>
           <li className="p-sm font-medium p-2">
             <Link to="/doctorsDashboard/doctor" className="block">

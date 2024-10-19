@@ -7,7 +7,6 @@ import SidebarDoctor from "./page/SidebarDoctor";
 import PatientAnalytics from "./page/PatientAnalytics";
 import TreatmentScheduling from "./page/TreatmentScheduling";
 import Navbar from "./page/Navbar";
-import Home from "./page/Home";
 
 const Main = () => {
   const [isSidebarOPen, setIsSidebarOpen] = useState(true);
@@ -21,7 +20,6 @@ const Main = () => {
         
 
         <Routes>
-          <Route path="/home" element={<Home/>}/>
           < Route path="/navbar" element={<Navbar/>}/>
           <Route path="/doctor" element={<Doctor/>} />
           <Route path="/sidebar" element={<SidebarDoctor />} />

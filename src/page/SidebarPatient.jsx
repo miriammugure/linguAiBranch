@@ -12,8 +12,8 @@ const SidebarPatient = ({ isSidebarOPen, handleSidebar }) => {
       } transition-transform duration-500 ease-in-out`}
     >
       <div className="flex items-center justify-between">
-        <h2 className="text-xl bg-blue-500 text-white rounded-md px-2 py-1 font-extrabold flex items-center gap-2 mb-5 p-4">
-          GoldenHealth
+        <h2 className="text-xl bg-green-700 text-white rounded-md px-2 py-1 font-extrabold flex items-center gap-2 mb-5 p-4">
+          AfyaNyumbani
         </h2>
         <RxCross2
           onClick={handleSidebar}
