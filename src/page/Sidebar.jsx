@@ -27,7 +27,7 @@ const Sidebar = ({ isSidebarOPen, handleSidebar }) => {
         <ul className=" ml-2">
           <>
             <li className="p-sm font-medium p-2 flex  ">
-              <Link to="/dashboard/home" className="flex flex-row ">
+              <Link to="/doctorsDashboard/home" className="flex flex-row ">
                 <span className=" flex  items-start gap-2 font-extrabold ">
                   <LuLayoutDashboard
                     size={20}
@@ -40,7 +40,7 @@ const Sidebar = ({ isSidebarOPen, handleSidebar }) => {
           </>
           <>
             <li className="p-sm font-medium p-2 ">
-            <Link to="/dashboard/doctor" className="block">
+            <Link to="/doctorsDashboard/doctor" className="block">
 
                 <span className=" flex items-center gap-2 font-extrabold">
                   <LuLayoutDashboard size={20} />
@@ -49,7 +49,7 @@ const Sidebar = ({ isSidebarOPen, handleSidebar }) => {
               </Link>
             </li>
             <li className="p-sm font-medium p-2 ">
-              <Link to="/dashboard/treatmentScheduling" className="block">
+              <Link to="/doctorsDashboard/treatmentScheduling" className="block">
                 <span className=" flex items-center gap-2 font-extrabold">
                   <LuLayoutDashboard size={20} />
                  Treatment Scheduling

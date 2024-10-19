@@ -12,7 +12,7 @@ function SideBarLinks() {
         </ul>
         <ul>
           <li>
-            <Link to="/scheduling" className="hover:text-[rgb(48,207,167)] text-sm">Treatment Scheduling</Link>
+            <Link to="/treatmentScheduling" className="hover:text-[rgb(48,207,167)] text-sm">Treatment Scheduling</Link>
           </li>
         </ul>
       </div>

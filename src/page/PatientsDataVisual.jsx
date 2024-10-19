@@ -1,9 +1,8 @@
 import DataTable from "react-data-table-component";
 import { patientsData } from "../data/data";
 import { Link } from "react-router-dom";
-// import DashboardLayout from "./DashboardLayout";
 
-const Doctor = () => {
+const PatientsDataVisual = () => {
   const columns = [
     {
       name: "ID",
@@ -103,4 +102,4 @@ const Doctor = () => {
 };
 
 
-export default Doctor;
+export default PatientsDataVisual;
