@@ -3,8 +3,16 @@ import { FaArrowAltCircleLeft } from "react-icons/fa";
 import { LuLayoutDashboard } from "react-icons/lu";
 import PropTypes from 'prop-types';
 import { RxCross2 } from "react-icons/rx";
+import { useAuth } from "../Context/AuthContext"; // Import useAuth hook
 
 const SidebarDoctor = ({ isSidebarOPen, handleSidebar }) => {
+  const { logout } = useAuth(); // Get the logout function from AuthContext
+
+  // Handle sign out click
+  const handleSignOut = () => {
+    logout(); // Call the logout function
+  };
+
   return (
     <div
       className={`fixed top-0 z-50 w-64 h-screen text-sm bg-white shadow-lg transform px-4 text-slate-700 py-4 ${
@@ -48,12 +56,13 @@ const SidebarDoctor = ({ isSidebarOPen, handleSidebar }) => {
             </Link>
           </li>
           <li className="p-2">
-            <div to="/signout" className="block font-extrabold">
-              <span className="flex items-start gap-2 text-sm font-extrabold">
-                <FaArrowAltCircleLeft size={20} />
-                Sign out
-              </span>
-            </div>
+            <button
+              onClick={handleSignOut} // Call logout on click
+              className=" font-extrabold flex items-start gap-2 text-sm "
+            >
+              <FaArrowAltCircleLeft size={20} />
+              Sign out
+            </button>
           </li>
         </ul>
       </nav>
