@@ -21,6 +21,7 @@ function App() {
           {/* Public routes */}
           <Route path="/" element={<Register />} />
           <Route path="/login" element={<Login />} />
+         
           <Route path="/dashboard" element={<PrivateRoute><Main /></PrivateRoute>} />
         </Routes>
       </AuthProvider>

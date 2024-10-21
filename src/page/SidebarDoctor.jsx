@@ -55,6 +55,22 @@ const SidebarDoctor = ({ isSidebarOPen, handleSidebar }) => {
               </span>
             </Link>
           </li>
+          <li className="p-sm font-medium p-2">
+            <Link to="/doctorsDashboard/DiabetiesPredictionForm" className="block">
+              <span className="flex items-center gap-2 font-extrabold">
+                <LuLayoutDashboard size={20} />
+                Daibetes Prediction Form
+              </span>
+            </Link>
+          </li>
+          <li className="p-sm font-medium p-2">
+            <Link to="/doctorsDashboard/HypertensionPredictionForm" className="block">
+              <span className="flex items-center gap-2 font-extrabold">
+                <LuLayoutDashboard size={20} />
+               Hypertension  Prediction Form
+              </span>
+            </Link>
+          </li>
           <li className="p-2">
             <button
               onClick={handleSignOut} // Call logout on click

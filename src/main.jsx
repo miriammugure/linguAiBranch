@@ -7,6 +7,8 @@ import SidebarDoctor from "./page/SidebarDoctor";
 import PatientAnalytics from "./page/PatientAnalytics";
 import TreatmentScheduling from "./page/TreatmentScheduling";
 import Navbar from "./page/Navbar";
+import HypertensionPredictionForm from './page/HypertensionPredictionForm';
+import DiabetiesPredictionForm from './page/DiabetiesPredictionForm';
 
 const Main = () => {
   const [isSidebarOPen, setIsSidebarOpen] = useState(true);
@@ -25,6 +27,8 @@ const Main = () => {
           <Route path="/sidebar" element={<SidebarDoctor />} />
           < Route path="/treatmentScheduling" element={<TreatmentScheduling/>}/>
           < Route path="/patientProfile/:id" element={<PatientAnalytics/>}/>
+          <Route path="/HypertensionPredictionForm" element={<HypertensionPredictionForm />} />
+          <Route path="/DiabetiesPredictionForm" element={<DiabetiesPredictionForm />} />
         </Routes>
       </div>
     </div>
